@@ -37,6 +37,6 @@ class SpectralResidualBlock(Layer):
         
         _O = (S - tf.reduce_sum(S, axis=-1, keepdims=True)) / tf.reduce_sum(S, axis=-1, keepdims=True)
         _O = tf.abs(_O)
-        O = tf.where(_O > self.tau, 1, 0)
+        O = tf.where(_O > self.tau, 1., 0.)
 
         return R, O
